@@ -12,12 +12,12 @@ public class Main1 {
         Consumer printer1 = new Consumer<ArrayList>() {
             @Override
             public void accept(ArrayList messages) {
-                for (int i = 0; i<messages.size(); i++) {
-                    System.out.println(messages.get(i));
+                for (Object message : messages) {
+                    System.out.println(message);
                 }
             }
         };
-        //printer.accept("Hola mundo");
+
 
         Consumer<String> printer4 = message -> System.out.println(message);
 
@@ -31,6 +31,8 @@ public class Main1 {
         names.add("que");
         names.add("tal");
 
+
+        /*
         Consumer<ArrayList> printer3 = printer2.andThen(printer1);
         printer3.accept(names);
         System.out.println("------------------------------------");
@@ -39,6 +41,10 @@ public class Main1 {
         names.forEach(message -> {
             System.out.println(message);
         });
+
+         */
+
+        printer1.accept(names);
 
 
 
